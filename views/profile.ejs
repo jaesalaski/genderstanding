@@ -12,35 +12,17 @@
             </div>
           </div>
         <form action="/post/createPost" enctype="multipart/form-data" method="POST">
-          <div class="grid bg-base-200 justify-items-center mt-5">
-               <textarea id="title" name="title" rows="2" class="block p-2.5 w-3/4 text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500" placeholder="Ask a Question..."></textarea>
-              <button type="submit" class="btn btn-primary w-1/2 mt-2.5" value="Upload">Submit</button>
-          </div>
+          <div class = "grid justify-items-center">
+            <div class="card w-1/2 grid bg-base-200 justify-items-center mt-5">
+               <textarea id="title" name="title" rows="4" class="card card-body mt-2.5 block p-2.5 w-3/4 text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500" placeholder="Ask a Question..."></textarea>
+              <button type="submit" class="card card-actions card-normal btn btn-primary text-align-center w-1/3 mt-2.5 mb-2.5" value="Upload">Submit</button>
+            </div>
+          <div>
         </form>
 
-          <div class="divider"></div>
-
-          <div class="grid bg-base-200 justify-items-center mt-5">
-            <ul class="row list-unstyled">
-              <% for(var i=0; i<posts.length; i++) {%>
-                <li class="col-6 flex justify-items-center mt-5 mb-5 border border-white">
-                  <a href="/post/<%= posts[i]._id%>">
-                    <h2><%= posts[i].title%></h2>
-                  </a>
-                </li>
-              <% } %>
-              </ul>
               <!-- <%console.log(comments)%> -->
-              <ul class="row list-unstyled">
-                <% for(var i=0; i<comments.length; i++) {%>
-                  <% if(comments[i].post == '633eda3391ded2132cde8327') { %>
-                  <li class="col-6 justify-content-between mt-5">
-                    <h2><%= comments[i].comment%></h2>
-                  </li>
-                  <% } %>
-                <% } %>
-                </ul>
-
+              <div class="min-h-fit bg-base-200 w-1/2">
+              <div class="card grid justify-items-center mt-5">
                 <ul class="row list-unstyled">
                   <% for(var j=0; j<posts.length; j++) {%>
                     <li class="col-6 flex justify-items-center mt-5 mb-5 border border-white">
@@ -58,6 +40,6 @@
                   <% }%>
                 </ul>
 
-
+            </div>
           </div>  
 <%- include('partials/footer') -%>
