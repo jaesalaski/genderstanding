@@ -1,23 +1,36 @@
 <%- include('partials/header') -%>
 
 
-          <div class="bg-base-200"> 
+          <!-- <div class="bg-base-200"> 
             <div class="flex flex-col w-full border-opacity-50">
-            <!-- <div class="grid max-h-fit max-w-fit card bg-base-300 rounded-box place-items-left ml-10 pl-3 pr-3">
+              <div class="grid max-h-fit max-w-fit card bg-base-300 rounded-box place-items-left ml-10 pl-3 pr-3">
               <div>
                 <h2 class="text-primary">User Info</h2>
                     <p><strong>User Name</strong>: <%= user.userName %></p>
                     <p><strong>Email</strong>: <%= user.email %></p> -->
-                    <!-- <a href="/logout" class="col-3 btn btn-primary">Logout</a> -->
+                    <!-- <a href="/logout" class="col-3 btn btn-primary">Logout</a>
             </div>
-          </div>
+          </div> -->
         <form action="/post/createPost" enctype="multipart/form-data" method="POST">
-          <div class="grid card bg-base-200 justify-items-center mt-1 border-black">
-               <textarea id="title" name="title" rows="3" class="block p-2.5 w-3/4 text-sm text-gray-900 bg-gray-50 rounded-lg border border-black focus:ring-blue-500 focus:border-blue-500 mt-2.5" placeholder="Ask a Question..."></textarea>
+          <div class = "grid justify-items-center">
+          <div class="grid card bg-base-100 justify-items-center mt-1 border-black card flex-shrink-0 w-full 6xl shadow-2xl">
+               <textarea id="title" name="title" rows="3" class="block p-2.5 w-3/4 text-sm text-gray-900 bg-gray-100 rounded-lg border border-black focus:ring-blue-500 focus:border-blue-500 mt-2.5" placeholder="Ask a Question..."></textarea>
               <button type="submit" class="btn btn-primary w-1/4 mt-2.5 mb-2.5" value="Upload">Submit</button>
           </div>
+          </div>
         </form>
-          <div class="grid card bg-base-200 justify-items-center mt-1 mb-1">
+          <div class = "grid justify-items-center">
+
+          <div class="grid card bg-base-100 justify-items-center mt-1 mb-1 border-black card flex-shrink-0 w-full w-6xl shadow-2xl">
+            <h1 class="text-5xl font-bold text-primary">Feed Header</h1>
+            <div class="dropdown form-control">
+              <label tabindex="0" class="btn btn-primary mt-2.5 mb-2.5">Sort By</label>
+              <ul tabindex="0" class="dropdown-content menu p-2 shadow bg-rose-100 rounded-box w-52">
+                <li><a>Most Recent</a></li>
+                <li><a>Best Questions</a></li>
+                <li><a>Best Answers</a></li>
+              </ul>
+            </div>
                 <ul class="row list-unstyled">
                   <% for(var j=0; j<posts.length; j++) {%>
                     <li class="col-6 flex justify-items-center mt-5 mb-5 border border-white">
@@ -34,5 +47,6 @@
                    <% } %>
                   <% }%>
                 </ul>
+              </div>
             </div>  
 <%- include('partials/footer') -%>
