@@ -14,39 +14,48 @@
         <form action="/post/createPost" enctype="multipart/form-data" method="POST">
           <div class = "grid justify-items-center">
           <div class="grid card bg-base-100 justify-items-center mt-1 border-black card flex-shrink-0 w-full 6xl shadow-2xl">
-               <textarea id="title" name="title" rows="3" class="block p-2.5 w-3/4 text-sm text-gray-900 bg-gray-100 rounded-lg border border-black focus:ring-blue-500 focus:border-blue-500 mt-2.5" placeholder="Ask a Question..."></textarea>
+               <textarea id="title" name="title" rows="3" class="block p-2.5 w-1/2 text-sm text-gray-900 bg-base-100 rounded-lg border border-rose-100 shadow-lg focus:ring-blue-500 focus:border-blue-500 mt-2.5" placeholder="Ask a Question..."></textarea>
               <button type="submit" class="btn btn-primary w-1/4 mt-2.5 mb-2.5" value="Upload">Submit</button>
           </div>
           </div>
         </form>
           <div class = "grid justify-items-center">
-
-          <div class="grid card bg-base-100 justify-items-center mt-1 mb-1 border-black card flex-shrink-0 w-full w-6xl shadow-2xl">
-            <h1 class="text-5xl font-bold text-primary">Feed Header</h1>
-            <div class="dropdown form-control">
-              <label tabindex="0" class="btn btn-primary mt-2.5 mb-2.5">Sort By</label>
-              <ul tabindex="0" class="dropdown-content menu p-2 shadow bg-rose-100 rounded-box w-52">
-                <li><a>Most Recent</a></li>
-                <li><a>Best Questions</a></li>
-                <li><a>Best Answers</a></li>
-              </ul>
-            </div>
-                <ul class="row list-unstyled">
-                  <% for(var j=0; j<posts.length; j++) {%>
-                    <li class="col-6 flex justify-items-center mt-5 mb-5 border border-white">
-                      <a href="/post/<%= posts[j]._id%>">
-                        <h2><%= posts[j].title%></h2>
-                      </a>
-                    </li>
-                  <% for(var i=0; i<comments.length; i++) {%>
-                    <% if(comments[i].post.toString() == posts[j]._id.toString()) {%> 
-                    <li class="col-6 justify-content-between mt-5">
-                      <h2><%= comments[i].comment%></h2>
-                    </li>
-                    <% } %>
-                   <% } %>
-                  <% }%>
+            <div class="grid card bg-base-100 justify-items-center mt-1 mb-1 border-black card flex-shrink-0 w-full w-6xl shadow-2xl">
+              <div class="dropdown form-control">
+                <label tabindex="0" class="btn btn-secondary mt-2.5 mb-2.5">Sort Feed By</label>
+                <ul tabindex="0" class="dropdown-content menu p-2 shadow bg-rose-100 rounded-box w-52">
+                  <li><a>Most Recent</a></li>
+                  <li><a>Best Questions</a></li>
+                  <li><a>Best Answers</a></li>
                 </ul>
+              </div>
+                  <ul class="row list-unstyled">
+                    <% for(var j=0; j<posts.length; j++) {%>
+                      <div class="card shadow-lg mb-2 border border-rose-100 p-2">
+                      <li class="col-6 flex justify-items-center mt-5 mb-2">
+                        <a href="/post/<%= posts[j]._id%>">
+                          <h2 class = "font-bold"><%= posts[j].title%></h2>
+                          <form
+                          class="col-1"
+                          action="post/likePost/<%= posts[j].id %>?_method=PUT"
+                          method="POST"
+                        >
+                          <button class="btn btn-primary fa fa-heart" type="submit"></button>
+                        </form>
+                      <h3><%= posts[j].likes %></h3>
+                    </a>
+                      </li>
+                    <% for(var i=0; i<comments.length; i++) {%>
+                      <% if(comments[i].post.toString() == posts[j]._id.toString()) {%> 
+                      <li class="col-6 justify-content-between mb-5">
+                        <h2><%= comments[i].comment%></h2>
+                      </li>
+                      <% } %>
+                    <% } %>
+
+                    </div>
+                    <% } %>
+                  </ul>
               </div>
             </div>  
 <%- include('partials/footer') -%>
