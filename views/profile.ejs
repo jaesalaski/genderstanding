@@ -22,7 +22,7 @@
           <div class = "grid justify-items-center">
             <div class="grid card bg-base-100 justify-items-center mt-1 mb-1 border-black card flex-shrink-0 w-full w-6xl shadow-2xl">
               <div class="dropdown form-control">
-                <label tabindex="0" class="btn btn-secondary mt-2.5 mb-2.5">Sort Feed By</label>
+                <label tabindex="0" class="btn mt-2.5 mb-2.5 btn-secondary">Sort Feed By</label>
                 <ul tabindex="0" class="dropdown-content menu p-2 shadow bg-rose-100 rounded-box w-52">
                   <li><a>Most Recent</a></li>
                   <li><a>Best Questions</a></li>
@@ -40,9 +40,11 @@
                           action="post/likePost/<%= posts[j].id %>?_method=PUT"
                           method="POST"
                         >
-                          <button class="btn btn-primary fa fa-heart" type="submit"></button>
+                          <button class="fa fa-heart fa-xs text-secondary" type="submit">
+                            <div class="fa"><span class="text-black"><%= posts[j].likes %></span></div>
+                          </button>
                         </form>
-                      <h3><%= posts[j].likes %></h3>
+
                     </a>
                       </li>
                     <% for(var i=0; i<comments.length; i++) {%>
