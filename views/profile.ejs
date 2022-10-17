@@ -31,35 +31,48 @@
               </div>
                   <ul class="row list-unstyled">
                     <% for(var j=0; j<posts.length; j++) {%>
-                      <div class="card shadow-lg mb-2 border border-rose-100 p-2">
-                      <li class="col-6 flex justify-items-center mt-5 mb-5">
+                      <div class="card grid shadow-lg mb-2 border border-rose-100 p-2">
+                      <li class="mt-5 mb-5 ">
                         <a href="/post/<%= posts[j]._id%>">
                           <h2 class = "font-bold text-lg"><%= posts[j].title%></h2>
-                          <form
-                          class="col-1 -mt-2"
-                          action="post/likePost/<%= posts[j].id %>?_method=PUT"
-                          method="POST"
-                        >
-                          <button class="fa fa-heart fa-xs text-secondary" type="submit">
-                            <div class="fa"><span class="text-black"><%= posts[j].likes %></span></div>
-                          </button>
-                        </form>
-
+                          <div class="inline">
+                            <form
+                            class="col-1 -mt-2"
+                            action="post/likePost/<%= posts[j].id %>?_method=PUT"
+                            method="POST"
+                          >
+                            <button class="fa fa-heart fa-xs text-secondary" type="submit">
+                              <div class="fa"><span class="text-black"><%= posts[j].likes %></span></div>
+                            </button>
+                          </form>
+                          
+                          <%if(posts[j].user == user.id){ %>
+                            <form
+                              action="/post/deletePost/<%= posts[j]._id %>?_method=DELETE"
+                              method="POST"
+                              class=""
+                            >
+                              <button class="fa fa-trash" type="submit">
+                              </button>
+                            </form>
+                            <%}%>
+                        </div>
                     </a>
+
                       </li>
                     <% for(var i=0; i<comments.length; i++) {%>
                       <% if(comments[i].post.toString() == posts[j]._id.toString()) {%> 
-                      <li class="col-6 justify-content-between">
-                        <h2><%= comments[i].comment%></h2>
-                        <form
-                        class="col-1 -mt-2"
-                        action="post/likePost/<%= posts[j].id %>?_method=PUT"
-                        method="POST"
-                      >
-                        <button class="fa fa-heart fa-xs text-secondary" type="submit">
-                          <div class="fa"><span class="text-black"><%= posts[j].likes %></span></div>
-                        </button>
-                      </form>
+                      <li class="col-6 justify-content-between mt-5">
+                          <h2><%= comments[i].comment%></h2>
+                          <form
+                          class="col-1 -mt-2"
+                          action="comment/likeComment/<%= comments[i]._id %>?_method=PUT"
+                          method="POST"
+                        >
+                            <button class="fa fa-heart fa-xs text-secondary" type="submit">
+                              <div class="fa"><span class="text-black"><%= comments[i].likes %></span></div>
+                            </button>
+                        </form>
 
                       </li>
                       <% } %>
