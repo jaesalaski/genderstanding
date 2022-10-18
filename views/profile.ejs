@@ -62,7 +62,7 @@
                       </li>
                     <% for(var i=0; i<comments.length; i++) {%>
                       <% if(comments[i].post.toString() == posts[j]._id.toString()) {%> 
-                      <li class="col-6 justify-content-between mt-5">
+                      <li class="col-6 justify-content-between mt-2">
                           <h2><%= comments[i].comment%></h2>
                           <form
                           class="col-1 -mt-2"
@@ -73,10 +73,20 @@
                               <div class="fa"><span class="text-black"><%= comments[i].likes %></span></div>
                             </button>
                         </form>
-
+                        <% if(comments[i].user == user.id.toString()) {%>
+                          <form
+                            action="/comment/deleteComment/<%= comments[i]._id %>?_method=DELETE"
+                            method="POST"
+                            class=""
+                          >
+                            <button class="fa fa-trash" type="submit">
+                            </button>
+                          </form>
+                          <% }%>
+                      <% } %>
                       </li>
                       <% } %>
-                    <% } %>
+
 
                     </div>
                     <% } %>

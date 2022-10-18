@@ -8,7 +8,8 @@ const CommentSchema = new mongoose.Schema({
   },
   likes: {
     type: Number,
-    required: true,
+    required: false,
+    ref: "User"
   },
   user: {
     type: mongoose.Schema.Types.ObjectId,
