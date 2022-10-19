@@ -23,8 +23,6 @@
 <!-- sort by button -->
   <div class = "grid justify-items-center">  
 
-
-
   <!-- Feed -->
   <div class="grid bg-base-100 justify-items-center mt-2.5 border border-black flex-shrink-0 w-3/4 shadow-xl mb-2.5 rounded-lg p-5">
     <ul class="row list-unstyled">
@@ -32,12 +30,11 @@
     <!-- post text -->
 
       <% for(var j=0; j<posts.length; j++) {%>
-
           <li class="mt-5 mb-5 ">
             <h2 class = "font-bold text-lg"><%= posts[j].title%></h2>
           <!-- post likes -->
             <form
-            class="inline-block"
+            class="inline-block -"
             action="post/likePost/<%= posts[j].id %>?_method=PUT"
             method="POST"
             >
@@ -47,7 +44,8 @@
             </form>
 
           <!-- delete icon and method -->           
-            <%if(posts[j].user == user.id){ %> 
+            <%if(posts[j].user.toString() == user._id.toString()){ %> 
+               
               <form
                 action="/post/deletePost/<%= posts[j]._id %>?_method=DELETE"
                 method="POST"
@@ -55,6 +53,7 @@
               >
                 <button class="fa fa-trash fa-xs text-primary" type="submit"></button>
               </form>
+              
       <%}%>       
           </li>
 
@@ -74,7 +73,7 @@
                         </div>
                       </button>
                     </form>
-                    <% if(comments[i].user == user.id.toString()) {%>
+                    <% if(comments[i].user.toString() == user.id.toString()) {%>
                       <form
                       action="/comment/deleteComment/<%= comments[i]._id %>?_method=DELETE"
                       method="POST"
