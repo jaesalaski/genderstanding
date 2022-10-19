@@ -6,8 +6,8 @@ module.exports = {
 
   getProfile: async (req, res) => {
       try {
-        const posts = await Post.find({ user: req.user.id });
         const comments = await Comment.find({ comments: req.params.comment })
+        const posts = await Post.find()
         .sort({ createdAt: "desc" })
         .lean();
         res.render("profile.ejs", { 
