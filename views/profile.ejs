@@ -28,14 +28,13 @@
     <ul class="row list-unstyled">
 
     <!-- post text -->
-
       <% for(var j=0; j<posts.length; j++) {%>
           <li class="mt-5 mb-5 ">
             <h2 class = "font-bold text-lg"><%= posts[j].title%></h2>
           <!-- post likes -->
             <form
             class="inline-block -"
-            action="post/likePost/<%= posts[j].id %>?_method=PUT"
+            action="post/likePost/<%= posts[j]._id %>?_method=PUT"
             method="POST"
             >
               <button class="fa fa-heart fa-xs text-secondary" type="submit">
