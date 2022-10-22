@@ -1,9 +1,9 @@
 # Genderstanding
-Write a short sentence or two about this project and what it does. Be sure to include a link and a screenshot (we're front end devs so we can actually see our work!).
+My goal in creating Genderstanding is to provide a space to discuss gender identity in a positive manner and increase understanding in a space that is traditional marked by conflict.
 
-**Link to project:** http://recruiters-love-seeing-live-demos.com/
+**Link to project:** https://genderstanding.cyclic.app/
 
-![alt tag](http://placecorgi.com/1200/650)
+![alt tag](https://www.jsalaski.com/genderstanding-logo-resize.webp)
 
 ## How It's Made:
 
