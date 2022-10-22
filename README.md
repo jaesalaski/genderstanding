@@ -7,14 +7,14 @@ My goal in creating Genderstanding is to provide a space to discuss gender ident
 
 ## How It's Made:
 
-**Tech used:** HTML, CSS, JavaScript, Framework of choice
+**Tech used:** HTML, CSS, JavaScript (EJS, Express), MongoDB
 
-Here's where you can go to town on how you actually built this thing. Write as much as you can here, it's totally fine if it's not too much just make sure you write *something*. If you don't have too much experience on your resume working on the front end that's totally fine. This is where you can really show off your passion and make up for that ten fold.
+Genderstanding is built on a stack that includes EJS. This will likely eventually change to a more traditional MERN stack and include React to capture benefits of component-based modularity as I work with end-user feedback. In its current iteration, Genderstanding represents a more robust "wireframe" of an app that provides functionality and flexibility to both users and support.
 
 ## Optimizations
-*(optional)*
 
-You don't have to include this section but interviewers *love* that you can not only deliver a final product that looks great but also functions efficiently. Did you write something then refactor it later and the result was 5x faster than the original implementation? Did you cache your assets? Things that you write in this section are **GREAT** to bring up in interviews and you can use this section as reference when studying for technical interviews!
+My current to-do list:
+- Likes per user (upvote? downvote?
 
 ## Lessons Learned:
 
