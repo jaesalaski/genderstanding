@@ -20,16 +20,8 @@ My current to-do list:
 -   About
 -   Donate
 -   FAQ
+- OAuth only from Google/FB for better accountability of users.
 
 ## Lessons Learned:
 
-No matter what your experience level, being an engineer means continuously learning. Every time you build something you always have those *whoa this is awesome* or *fuck yeah I did it!* moments. This is where you should share those moments! Recruiters and interviewers love to see that you're self-aware and passionate about growing.
-
-## Examples:
-Take a look at these couple examples that I have in my own portfolio:
-
-**Palettable:** https://github.com/alecortega/palettable
-
-**Twitter Battle:** https://github.com/alecortega/twitter-battle
-
-**Patch Panel:** https://github.com/alecortega/patch-panel
+This was my first project to fully utilize Tailwind CSS and also includes some EJS functionality that I have not placed into any project before. Because of the sensitive nature surrounding Gender Identity, I am choosing to use Passport.JS to lean on OAuth from other entities to increase user accountability. Overall, the project has been a great exercise on an industry-standard stack and lends itself well to my own life experiences. If I were to start this project over, I would probably write this in React from the get-go.
