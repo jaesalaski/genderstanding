@@ -11,6 +11,10 @@ exports.getLogin = (req, res) => {
   });
 };
 
+exports.getAbout = (req, res) => {
+    return res.redirect("/about");
+};
+
 exports.postLogin = (req, res, next) => {
   const validationErrors = [];
   if (!validator.isEmail(req.body.email))
