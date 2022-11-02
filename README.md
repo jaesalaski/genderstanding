@@ -20,7 +20,10 @@ My current to-do list:
 -   About
 -   Donate
 -   FAQ
+-   Demographic badges
 - OAuth only from Google/FB for better accountability of users.
+- Threads
+- Consideration for editing: perhaps a timeframe will work best to prevent abuse.
 
 ## Lessons Learned:
 
