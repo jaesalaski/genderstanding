@@ -8,7 +8,7 @@ module.exports = {
   getFAQ: (req, res) => {
     res.render("faq.ejs");
   },
-  getDonate: (req, res) => {
-    res.render("donate.ejs");
+  getContact: (req, res) => {
+    res.render("contact.ejs");
   },
 };

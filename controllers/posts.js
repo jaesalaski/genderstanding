@@ -31,13 +31,13 @@ module.exports = {
   
   createPost: async (req, res) => {
     try {
-      // // Upload image to cloudinary
       const postData = {
         title: req.body.title,
         caption: req.body.caption,
         likes: 0,
         user: req.user.id,
        } 
+//for cloudinary / images
       if(req.file){
       const result = await cloudinary.uploader.upload(req.file.path);
         postData.image = result.secure_url,

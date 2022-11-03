@@ -19,6 +19,7 @@ module.exports = {
   },
 
   likeComment: async (req, res) => {
+    let commentLikesArr = []
     try {
       await Comment.findOneAndUpdate(
         {
