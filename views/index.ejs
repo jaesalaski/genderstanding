@@ -1,9 +1,8 @@
 
 <%- include('partials/index-header') -%>
-
-
-  <div class="row justify-content-center">
-    <section class="col-6 mt-5">
+<div class = "flex justify-center items-center h-screen">
+  <div class="row justify-content-center border border-black rounded-2xl shadow-md w-11/12">
+    <section>
       <% if (locals.messages.errors) { %> <% messages.errors.forEach( el => { %>
       <div class="alert alert-danger"><%= el.msg %></div>
       <% }) %> <% } %> <% if (locals.messages.info) { %> <%
@@ -11,7 +10,7 @@
       <div class="alert alert-info"><%= el.msg %></div>
       <% }) %> <% } %>
 
-<div class="hero min-h-fit bg-base-100">
+<div class="hero">
   <div class="hero-content flex-col lg:flex-row">
     <div class="text-center lg:text-left">
       <h1 class="text-4xl font-bold text-primary">Genderstanding</h1>
@@ -54,3 +53,4 @@
     
 
 <%- include('partials/footer') -%>
+</div>
