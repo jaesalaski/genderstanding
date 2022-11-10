@@ -24,7 +24,8 @@ const CommentSchema = new mongoose.Schema({
     default: Date.now,
   },
   likedBy: {
-    type: Array
+    type: [],
+    ref: "User",
   }
 });
 
