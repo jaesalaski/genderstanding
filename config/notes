@@ -17,3 +17,6 @@
 
 //I am currently working on getting the likedBy field to be working for the comments.
 //likedBy: is showing as an Array when I make a comment, but it doesn't seem to include anything.
+
+//currently set to git push --set-upstream origin likesArray
+//set this to --set-upstream origin main when done..
