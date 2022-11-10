@@ -8,6 +8,7 @@ module.exports = {
       await Comment.create({
         comment: req.body.comment,
         likes: 0,
+        likedBy: [],
         post: req.params.id,
         user: req.user.id,
       });
@@ -19,22 +20,32 @@ module.exports = {
   },
 
   likeComment: async (req, res) => {
-    let commentLikesArr = []
     try {
-      await Comment.findOneAndUpdate(
-        {
-          _id: req.params.id },
-        {
+        let likedBy = Comment.likedBy
+      if(likedBy.includes(user) == false){
+        Comment.findOneAndUpdate({
+          _id: req.params.id,
+          user: req.user.id,
           $inc: { likes: 1 },
-        }
-      );
-      console.log("Likes +1");
+          $push: { likedBy: user }
+      })
+    }
+     else if(likedBy.includes(user) == true){
+        Comment.findOneAndUpdate({
+          _id: req.params.id,
+          user: req.user.id,
+          $inc: { likes: -1 },
+          $splice: { likedBy: indexOf(user) },
+      });
+    }
+ 
+      console.log("Likes modified");
       res.redirect(`/profile`);
     } catch (err) {
       console.log(err);
     }
   },
-
+ 
 deleteComment: async (req, res) => {
   try {
     // Find post by id
@@ -47,7 +58,6 @@ deleteComment: async (req, res) => {
     }
   }
 }
-
 //   deletePost: async (req, res) => {
 //     try {
 //       // Find post by id
@@ -70,3 +80,20 @@ deleteComment: async (req, res) => {
   //     console.log(err);
   //   }
   // },
+
+// working --> multiple
+//  likeComment: async (req, res) => {
+//     try {
+//       await Comment.findOneAndUpdate(
+//         {
+//           _id: req.params.id },
+//         {
+//           $inc: { likes: 1 },
+//         }
+//       );
+//       console.log("Likes +1");
+//       res.redirect(`/profile`);
+//     } catch (err) {
+//       console.log(err);
+//     }
+//   },
