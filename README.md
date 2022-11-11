@@ -1,7 +1,7 @@
 # Genderstanding
 My goal in creating Genderstanding is to provide a space to discuss gender identity in a positive manner and increase understanding in a space that is traditionally marked by conflict.
 
-**Link to project:** https://genderstanding.cyclic.app/
+**Link to project:** https://genderstanding.cyclic.app/ -- this is currently behind by several iterations, as I may move hosting platforms.
 
 ![alt tag](https://www.jsalaski.com/genderstanding-logo-resize.webp)
 
