@@ -18,33 +18,6 @@ module.exports = {
       console.log(err);
     }
   },
-
-  // likeComment: async (req, res) => {
-  //   try {
-      // let likedBy = Comment.likedBy
-      // if(likedBy.includes(user) == false){
-        // Comment.findOneAndUpdate({
-        //   _id: req.params.id,
-        //   user: req.user.id},
-        //   { $inc: { likes: 1 },
-        //   $push: { likedBy: req.user.id }
-    // })
-      // }
-    //  else if(likedBy.includes(user) == true){
-    //     Comment.findOneAndUpdate({
-    //       _id: req.params.id,
-    //       user: req.user.id,
-    //       $inc: { likes: -1 },
-    //       $splice: { likedBy: indexOf(user) },
-    //   });
-    // }
- 
-  //     console.log("Likes modified");
-  //     res.redirect(`/profile`);
-  //   } catch (err) {
-  //     console.log(err);
-  //   }
-  // },
  
 deleteComment: async (req, res) => {
   try {
@@ -57,54 +30,23 @@ deleteComment: async (req, res) => {
     res.redirect("/profile");
     }
   },
-likeComment: async (req, res) => {
-  let upComment = Comment.findOneAndUpdate(
-    {
-      $inc: { likes: 1 },
-      $push: { likedBy: req.user.id }
-    })
 
-let downComment = Comment.findOneAndUpdate(
-    {
-      $inc: { likes: -1 },
-      // get rid of the user name from the likedBy array.
-    })
-
-
-  try {
-    await Comment.findOne(
-      { likedBy: req.user.id }
-     )
-
-      
-    console.log("Likes updated");
-    res.redirect(`/profile`);
-  } catch (err) {
-    console.log(err);
+ likeComment: async (req, res) => {
+    try {
+      await Comment.findOneAndUpdate(
+        {
+          _id: req.params.id },
+        {
+          $inc: { likes: 1 },
+        }
+      );
+      console.log("Likes +1");
+      res.redirect(`/profile`);
+    } catch (err) {
+      console.log(err);
     }
-  }
-
-// working to push name to array, infinite +1s
-// likeComment: async (req, res) => {
-//   try {
-//     await Comment.findOneAndUpdate(
-//       {
-//         _id: req.params.id, 
-//         user: req.user.id },
-//       {
-//         $inc: { likes: 1 },
-//         $push: { likedBy: req.user.id }
-//       }
-
-//     );
-    
-//     console.log("Likes updated");
-//     res.redirect(`/profile`);
-//   } catch (err) {
-//     console.log(err);
-//     }
-//   }
-
+  },
+}
 //   deletePost: async (req, res) => {
 //     try {
 //       // Find post by id
@@ -127,5 +69,3 @@ let downComment = Comment.findOneAndUpdate(
   //     console.log(err);
   //   }
   // },
-
-// working --> multiple
