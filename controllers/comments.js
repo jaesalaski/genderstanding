@@ -8,6 +8,7 @@ module.exports = {
       await Comment.create({
         comment: req.body.comment,
         likes: 0,
+        likedBy: [],
         post: req.params.id,
         user: req.user.id,
       });
@@ -17,9 +18,20 @@ module.exports = {
       console.log(err);
     }
   },
+ 
+deleteComment: async (req, res) => {
+  try {
+    // Find post by id
+    let comment = await Comment.findById({ _id: req.params.id });
+    await Comment.deleteOne({ _id: req.params.id });
+    console.log("Deleted Post");
+    res.redirect("/profile");
+  } catch (err) {
+    res.redirect("/profile");
+    }
+  },
 
-  likeComment: async (req, res) => {
-    let commentLikesArr = []
+ likeComment: async (req, res) => {
     try {
       await Comment.findOneAndUpdate(
         {
@@ -34,20 +46,7 @@ module.exports = {
       console.log(err);
     }
   },
-
-deleteComment: async (req, res) => {
-  try {
-    // Find post by id
-    let comment = await Comment.findById({ _id: req.params.id });
-    await Comment.deleteOne({ _id: req.params.id });
-    console.log("Deleted Post");
-    res.redirect("/profile");
-  } catch (err) {
-    res.redirect("/profile");
-    }
-  }
 }
-
 //   deletePost: async (req, res) => {
 //     try {
 //       // Find post by id
