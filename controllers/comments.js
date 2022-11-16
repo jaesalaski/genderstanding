@@ -43,7 +43,7 @@ likeComment: async (req, res) => {
     }
         await comment.save();
     
-        console.log("Likes +1");
+        console.log("Likes modified");
     res.redirect(`/profile`);
   } catch (err) {
     console.log(err);
