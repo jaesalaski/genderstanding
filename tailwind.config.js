@@ -6,8 +6,6 @@ module.exports = {
   },
   daisyui: {
      themes: ["cupcake"],
-  }
+  },
   plugins: [require("daisyui")],
 };
-
-//https://www.youtube.com/watch?v=sNXfI3woBEw

@@ -6,6 +6,7 @@ const { ensureAuth, ensureGuest } = require("../middleware/auth");
 
 //Commment Routes
 
+//to be used later
 // router.get("/:id", ensureAuth, postsController.getProfile);
 
 router.post("/createComment/:id", commentsController.createComment);
