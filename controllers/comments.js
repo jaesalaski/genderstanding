@@ -47,26 +47,3 @@ deleteComment: async (req, res) => {
     }
   }
 }
-
-//   deletePost: async (req, res) => {
-//     try {
-//       // Find post by id
-//       let post = await Post.findById({ _id: req.params.id });
-//       // Delete image from cloudinary
-//       await cloudinary.uploader.destroy(post.cloudinaryId);
-//       // Delete post from db
-//       await Post.remove({ _id: req.params.id });
-//       console.log("Deleted Post");
-//       res.redirect("/profile");
-//     } catch (err) {
-//       res.redirect("/profile");
-
-  // getComment : async (req, res) => {
-  //   try {
-  //     const posts = await Post.find({ user: req.user.id });
-  //     const comments = await Comment.find({ post: req.params.id }).sort({ createdAt: "desc" }).lean();
-  //     res.render("profile.ejs", { posts: posts, user: req.user, comments: comments });
-  //   } catch (err) {
-  //     console.log(err);
-  //   }
-  // },
