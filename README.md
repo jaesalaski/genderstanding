@@ -15,7 +15,7 @@ Genderstanding is built on a stack that includes EJS. This will likely eventuall
 ## Optimizations
 
 My current to-do list:
-- Likes per user: for example, upvotes and downvotes? Various other reactions?
+- Styling for main page
 - Flesh out header sections -- many of the styling elements need to be optimized.
 -   Profile settings
 -   About
