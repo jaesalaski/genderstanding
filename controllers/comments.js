@@ -19,16 +19,17 @@ module.exports = {
   },
 
   likeComment: async (req, res) => {
-    let commentLikesArr = []
-    try {
-      await Comment.findOneAndUpdate(
-        {
-          _id: req.params.id },
-        {
-          $inc: { likes: 1 },
+      try {
+        const comment = await Comment.findById(req.params.id);
+        const index = comment.likedBy.indexOf(req.user.id);
+        if(index > -1){
+          comment.likedBy.splice(index, 1);
+          comment.likes--;
+        } else {
+          comment.likedBy.push(req.user.id);
+          comment.likes++;
         }
-      );
-      console.log("Likes +1");
+            await comment.save();
       res.redirect(`/profile`);
     } catch (err) {
       console.log(err);
@@ -40,7 +41,7 @@ deleteComment: async (req, res) => {
     // Find post by id
     let comment = await Comment.findById({ _id: req.params.id });
     await Comment.deleteOne({ _id: req.params.id });
-    console.log("Deleted Post");
+    console.log("Deleted Comment");
     res.redirect("/profile");
   } catch (err) {
     res.redirect("/profile");

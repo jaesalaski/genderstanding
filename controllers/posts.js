@@ -64,7 +64,6 @@ likePost: async (req, res) => {
     }
         await post.save();
     
-        console.log("Likes +1");
     res.redirect(`/profile`);
   } catch (err) {
     console.log(err);
