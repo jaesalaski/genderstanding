@@ -1,48 +1,57 @@
 
 <%- include('partials/header') -%>
-
-<div class="hero min-h-fit bg-base-200">
-  <div class="hero-content flex-col lg:flex-row">
-    <div class="text-center lg:text-left">
-      <h1 class="text-5xl font-bold text-primary">Close the <span class="text-secondary">Understanding Gap</span></h1>
-    </div>
-    <div class="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
-      <section class="col-6 mt-5">
-        <% if (locals.messages.errors) { %> <% messages.errors.forEach( el => { %>
-        <div class="alert alert-danger"><%= el.msg %></div>
-        <% }) %> <% } %> <% if (locals.messages.info) { %> <%
-        messages.info.forEach( el => { %>
-        <div class="alert alert-info"><%= el.msg %></div>
-        <% }) %> <% } %>
-      <div class="card-body">
-
-        <div class="form-control">
-          <form action="/login" method="POST">
-          <label class="label">
-            <span class="label-text">Email</span>
-          </label>
-          <input type="email" placeholder="email" class="input input-bordered min-w-full" id="email" name="email" />
-        </div>
-        <div class="form-control">
-          <label class="label">
-            <span class="label-text">Password</span>
-          </label>
-          <input type="password" placeholder="password" class="input input-bordered min-w-full" id="password" name="password" />
-          <label class="label">
-            <a href="#" class="label-text-alt link link-hover">Forgot password?</a>
-          </label>
-        </div>
-        <div class="form-control">
-            <button type="submit" class="btn btn-primary min-w-full mt-2">Login</button>
-        </form>
-        </div>
-        </div>
-
+  <div class="hero min-h-fit bg-base-200">
+    <div class="hero-content flex-col lg:flex-row">
+      <div class="text-center lg:text-left">
+        <h1 class="text-5xl font-bold text-primary">Close the <span class="text-secondary">Understanding Gap</span></h1>
+      </div>
+      <div class="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
+        <section class="col-6 mt-5">
+          <% if(locals.messages.errors) { %>
+            <% messages.errors.forEach(el => { %>
+              <div class="alert alert-danger"><%= el.msg %></div>
+            <% }) %> 
+          <% } %> 
+          <% if(locals.messages.info) { %> 
+            <% messages.info.forEach( el => { %>
+              <div class="alert alert-info"><%= el.msg %></div>
+            <% }) %> 
+          <% } %>
+          <div class="card-body">
+          <div class="form-control">
+            <form action="/login" method="POST">
+              <label class="label">
+                <span class="label-text">Email</span>
+              </label>
+            <input 
+              type="email"  
+              class="input input-bordered min-w-full" 
+              placeholder="email" 
+              id="email" 
+              name="email" 
+            />
+          </div>
+          <div class="form-control">
+            <label class="label">
+              <span class="label-text">Password</span>
+            </label>
+            <input 
+              type="password"
+              class="input input-bordered min-w-full"
+              placeholder="password" 
+              id="password"
+              name="password" 
+            />
+            <label class="label">
+              <a href="#" class="label-text-alt link link-hover">Forgot password?</a>
+            </label>
+          </div>
+          <div class="form-control">
+              <button type="submit" class="btn btn-primary min-w-full mt-2">Login</button>
+          </form>
+          </div>
+        </section>
       </div>
     </div>
   </div>
-</div>
-</body>
-</html>
-
 <%- include('partials/footer') -%>
