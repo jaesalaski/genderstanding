@@ -1,4 +1,3 @@
-const Post = require("../models/Post");
 const Comment = require("../models/Comment");
 
 module.exports = {
@@ -19,32 +18,33 @@ module.exports = {
   },
 
   likeComment: async (req, res) => {
-      try {
-        const comment = await Comment.findById(req.params.id);
-        const index = comment.likedBy.indexOf(req.user.id);
-        if(index > -1){
-          comment.likedBy.splice(index, 1);
-          comment.likes--;
-        } else {
-          comment.likedBy.push(req.user.id);
-          comment.likes++;
+    try {
+      const comment = await Comment.findById(req.params.id);
+      const index = comment.likedBy.indexOf(req.user.id);
+      if(index > -1){
+        comment.likedBy.splice(index, 1);
+        comment.likes--;
+      } else {
+        comment.likedBy.push(req.user.id);
+        comment.likes++;
         }
-            await comment.save();
+      await comment.save();
+      console.log("Comment Updated");
       res.redirect(`/profile`);
     } catch (err) {
       console.log(err);
-    }
+      res.redirect("/profile");
+      }
   },
 
-deleteComment: async (req, res) => {
-  try {
-    // Find post by id
-    let comment = await Comment.findById({ _id: req.params.id });
-    await Comment.deleteOne({ _id: req.params.id });
-    console.log("Deleted Comment");
-    res.redirect("/profile");
-  } catch (err) {
-    res.redirect("/profile");
-    }
+  deleteComment: async (req, res) => {
+    try {
+      await Comment.deleteOne({ _id: req.params.id });
+      console.log("Deleted Comment");
+      res.redirect("/profile");
+    } catch (err) {
+      res.redirect("/profile");
+      }
   }
+  
 }
