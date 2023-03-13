@@ -1,58 +1,59 @@
-
 <%- include('partials/index-header') -%>
-<div class = "flex justify-center items-center h-screen">
-  <!-- <div class="row justify-content-center border border-black rounded-2xl shadow-md w-11/12"> -->
-    <section>
-      <% if (locals.messages.errors) { %> <% messages.errors.forEach( el => { %>
-      <div class="alert alert-danger"><%= el.msg %></div>
-      <% }) %> <% } %> <% if (locals.messages.info) { %> <%
-      messages.info.forEach( el => { %>
-      <div class="alert alert-info"><%= el.msg %></div>
-      <% }) %> <% } %>
-      
-<div class="hero">
-  <div class="flex hero-content flex-col lg:flex-row space-x-20">
-    <div class="text-center">
-      <h1 class="text-5xl font-bold text-primary">Genderstanding</h1><br>
-      <!-- <h1><span class="text-xl text-secondary">Close the Understanding Gap</span></h1><br><br> -->
-      <h2><span class="text-xl text-secondary">Dedicated to advancing understanding<br><span class="text-primary"> for all.</span></h2><br><br>
-      <p class="mouseOverPrimary">Learn More</p>
-      
-  
+  <body>
+    <div class = "flex justify-center items-center h-screen">
+      <section>
+        <% if (locals.messages.errors) { %> 
+          <% messages.errors.forEach( el => { %>
+            <div class="alert alert-danger"><%= el.msg %></div>
+          <% }) %> 
+        <% } %> 
+        <% if (locals.messages.info) { %> 
+          <% messages.info.forEach( el => { %>
+            <div class="alert alert-info"><%= el.msg %></div>
+          <% }) %> 
+        <% } %> 
+        <div class="hero">
+          <div class="flex hero-content flex-col lg:flex-row space">
+            <div class="text-center">
+              <h1 class="text-5xl font-bold text-primary">Genderstanding</h1><br>
+              <h2><span class="text-xl text-secondary">Dedicated to advancing understanding<br><span class="text-primary"> for all.</span></h2><br><br>
+              <p><a href="#" class="label-text-alt link link-hover">Learn More</a></p>   
+            </div>
+            <div class="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100 mb-4 border border-secondary">
+              <div class="card-body">
+                  <form action="/login" method="POST">
+                    <label class="label">
+                      <span class="label-text">Email</span>
+                    </label>
+                    <input 
+                      type="email" 
+                      placeholder="email" 
+                      class="input input-bordered min-w-full" 
+                      id="email"
+                      name="email"
+                      />
+                    <label class="label">
+                      <span class="label-text mt-5">Password</span>
+                    </label>
+                    <input
+                      type="password" 
+                      placeholder="password" 
+                      class="input input-bordered min-w-full" 
+                      id="password" 
+                      name="password" 
+                      />
+                    <label class="label">
+                      <a href="#" class="label-text-alt link link-hover">Forgot password?</a>
+                    </label>
+                      <button type="submit" class="btn btn-primary min-w-full mt-5">Login</button>
+                  </form>
+                  <label class ="label mt-5">Don't have an account?</label>
+                    <a href="/signup"><button type="submit" class="btn btn-secondary min-w-full">Sign Up</button></a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
     </div>
-    <div class="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100 mb-4   border border-secondary">
-      <div class="card-body">
-        <div class="form-control">
-          <form action="/login" method="POST">
-          <label class="label">
-            <span class="label-text">Email</span>
-          </label>
-          <input type="email" placeholder="email" class="input input-bordered min-w-full" id="email" name="email" />
-        </div>
-        <div class="form-control">
-          <label class="label">
-            <span class="label-text">Password</span>
-          </label>
-          <input type="password" placeholder="password" class="input input-bordered min-w-full" id="password" name="password" />
-          <label class="label">
-            <a href="#" class="label-text-alt link link-hover">Forgot password?</a>
-          </label>
-        </div>
-        <div class="form-control">
-            <button type="submit" class="btn btn-primary min-w-full mt-2">Login</button>
-        </form>
-        </div>
-        <div class="form-control">
-          <label class ="label mt-2">Don't have an account?</label>
-            <a href="/signup"><button type="submit" class="btn btn-secondary min-w-full">Sign Up</button></a>
-        </div>
-
-      </div>
-    </div>
-  </div>
-</div>
-</body>
-</html>
-    
-
+  </body>
 <%- include('partials/footer') -%>
