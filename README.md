@@ -1,5 +1,5 @@
 # Genderstanding
-My goal in creating Genderstanding is to provide a space to discuss gender identity in a positive manner and increase understanding in a space that is traditionally marked by conflict.
+My goal in creating Genderstanding is to provide a space to discuss gender identity in a positive manner and increase understanding in a space that is traditionally marked by conflict. This app was originally created as a small, anonymous platform that those in my life could ask me questions about gender identity if they were feeling unable / not sure how to do so.
 
 **Link to project:** https://genderstanding.cyclic.app/ 
 -- this is currently behind by several iterations, as I may move hosting platforms.
