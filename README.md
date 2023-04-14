@@ -9,7 +9,7 @@ My goal in creating Genderstanding is to provide a space to discuss gender ident
 
 **Tech used:** HTML, CSS, JavaScript (EJS, Express), MongoDB
 
-Genderstanding is built on a stack that includes EJS. This will likely eventually change to a more traditional MERN stack and include React to capture benefits of component-based modularity as I work with end-user feedback. In its current iteration, Genderstanding represents a more robust "wireframe" of an app that provides functionality and flexibility to both users and support.
+The first iteration of Genderstanding was built using the templating language EJS. As this little app's ambitions have grown and I have received feedback about this project, I am not refactoring this project to run on the MERN stack with a React front-end.
 
 ## Optimizations
 
@@ -27,4 +27,4 @@ My current to-do list:
 
 ## Lessons Learned:
 
-This was my first project to fully utilize Tailwind CSS and also includes some EJS functionality that I have not placed into any project before. Because of the sensitive nature surrounding Gender Identity, I am choosing to use Passport.JS to lean on OAuth from other entities to increase user accountability. Overall, the project has been a great exercise on an industry-standard stack and lends itself well to my own life experiences. If I were to start this project over, I would probably write this in React from the get-go.
+This was my first project to fully utilize Tailwind CSS and also includes some EJS functionality that I have not placed into any project before. Because of the sensitive nature surrounding Gender Identity, I am choosing to use Passport.JS to lean on OAuth from other entities to increase user accountability and allowing anonymous questions to be asked at tjhis time. Overall, the project has been a great exercise and has improved my life as well as those around me.
